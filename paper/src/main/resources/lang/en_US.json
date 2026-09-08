@@ -1,0 +1,320 @@
+{
+  "alathranwars": {
+    "prefix": "<dark_gray>[<gradient:#D72A09:#B01F03>War<dark_gray>]<reset> ",
+    "update-checker": {
+      "running-latest": "<white>You are running the latest version of <plugin_name>!",
+      "update-found-console": "\n\n<white>An update was found for <plugin_name>!\n    <white>Current version: <red>v<version_current>\n    <white>Latest version: <green><click:open_url:'<download_link>'><hover:show_text:'<green>Open Download Page'>v<version_latest></hover></click>\n",
+      "update-found-player": "\n<white>An update was found for <plugin_name>!\n  <dark_gray>• <white>Current version: <red>v<version_current>\n  <dark_gray>• <white>Latest version: <green><click:open_url:'<download_link>'><hover:show_text:'<green>Open Download Page'>v<version_latest></hover></click>\n",
+      "update-failed": "<yellow>Failed to fetch latest version, error: <error>"
+    },
+    "commands": {
+      "translation": {
+        "help": "\n<white>Translations subcommands:\n  <dark_gray>• <white>reload: <gray><i>Reloads the translation files.\n  <dark_gray>• <white>test <node>: <gray><i>Test a translation.\n",
+        "reloaded": "<green>Successfully reloaded translations!",
+        "test": {
+          "not-string": "<red>Translation node must be a string!",
+          "not-empty": "<red>Translation node \"<u><node></u>\" cannot be empty!",
+          "illegal": "<red>Translation node \"<u><node></u>\" cannot begin or end with a period!",
+          "not-found": "<red>Translation entry for node \"<u><node></u>\" doesn't exist!",
+          "not-empty2": "<red>Translation entry for node \"<u><node></u>\" is empty!"
+        }
+      },
+      "dump": {
+        "success": "<green>Successfully uploaded dump to <hover:show_text:'Click to open link'><click:open_url:'<link>'><u><link></u></click></hover>.",
+        "failure": "<red>Failed to upload dump: <error>",
+        "dumping": "<green>Gathering dump information and uploading to mclo.gs..."
+      },
+      "war": {
+        "invalid-args": "<prefix>Invalid Arguments. /war help",
+        "no-side": "<prefix><red>You need to specify a side.",
+        "invalid-target": "<red>Failed to yeet from the war because the target is invalid.",
+        "resident-invalid": "<red>Resident invalid.",
+        "create": {
+          "no-label": "<prefix><red>You need to specify a war label.",
+          "self-declare": "<prefix><red>Cannot declare war on oneself."
+        },
+        "join": {
+          "no-nation": "<red>No nation of that name exists.",
+          "nation-already-in": "<red>Nation is already in that war.",
+          "nation-rank": "<red>You are not of sufficient rank to join your nation into the war.",
+          "nation-cooldown-attack": "<red>Nation has attacking cooldown and cannot join the war.",
+          "nation-cooldown-defense": "<red>Nation has defensive cooldown and cannot join the war.",
+          "broadcast-nation": "<prefix>The nation of <nation> joined the war of <war> on the side of <side>.",
+          "no-town": "<red>No town of that name exists.",
+          "town-already-in": "<red>Town is already in that war.",
+          "town-rank": "<red>You are not of sufficient rank to join your town into the war.",
+          "town-cooldown-attack": "<red>Town has attacking cooldown and cannot join the war.",
+          "town-cooldown-defense": "<red>Town has defensive cooldown and cannot join the war.",
+          "broadcast-town": "<prefix>The town of <town> joined the war of <war> on the side of <side>.",
+          "no-player": "<red>No player of that name exists.",
+          "player-already-in": "<red>Player is already in that war.",
+          "player-not-allowed": "<red>Players cannot individually join wars.",
+          "player-cooldown-attack": "<red>Player has attacking cooldown and cannot join the war.",
+          "player-cooldown-defense": "<red>Player has defensive cooldown and cannot join the war.",
+          "target-invalid": "<red>The target is invalid.",
+          "success": "<prefix>You have joined the war.",
+          "subtitle": "<gray><i>You entered the war of <war>!"
+        },
+        "joinnear": {
+          "self-cooldown-attack": "<red>You have a offensive cooldown and cannot join this war.",
+          "self-cooldown-defense": "<red>You have a defensive cooldown and cannot join this war.",
+          "target-cooldown-attack": "<red>Player <target> has attacking cooldown and cannot join the war.",
+          "target-cooldown-defense": "<red>Player <target> has defensive cooldown and cannot join the war."
+        },
+        "surrender": {
+          "no-player": "<red>Player not found.",
+          "no-town": "<red>You are not in a town.",
+          "not-in-war": "<red>You are not in that war.",
+          "success": "<prefix>You have surrendered the war for <name>.",
+          "broadcast-nation": "<prefix>The nation of <nation> has surrendered!",
+          "broadcast-town": "<prefix>The town of <town> has surrendered!",
+          "no-nation-permission": "<red>You cannot surrender for your nation.",
+          "no-town-permission": "<red>You cannot surrender war for your town."
+        },
+        "kick": {
+          "success": "Target yeeted.",
+          "target-not-in-war": "<red>Failed to yeet from the war because the target is not in it."
+        },
+        "list": {
+          "empty": "<red>There are no wars at the moment, the world is at peace.",
+          "entry": "\n<white><bold><label><reset>\n <grey>Sides: <white><side1> <grey>vs <white><side2>\n <grey>Score: <white><score1> <grey>vs <white><score2>\n"
+        },
+        "info": {
+          "entry": "\n<white><bold><name><reset>\n <grey>Score: <green><score>\n <grey>Nations: <green><nations><grey>/<red><nations_all>\n <grey>Towns: <green><towns><grey>/<red><towns_all>\n <grey>Players: <green><players><grey>/<red><players_all>\n"
+        },
+        "infoside": {
+          "nations-header": "\n<white><bold>Nations:<reset>",
+          "towns-header": "\n<white><bold>Towns:<reset>",
+          "entry": "\n <grey><name>"
+        }
+      },
+      "siege": {
+        "invalid-args": "<prefix>Invalid Arguments. /siege help",
+        "invalid-siege": "<red>Invalid siege.",
+        "resident-invalid": "<red>Resident invalid.",
+        "start": {
+          "no-war": "<red>You need to specify a war.",
+          "no-town": "<red>You need to specify a town.",
+          "not-in-war": "<red>You are not in this war.",
+          "not-war-time": "<red>You cannot start sieges outside of war time.",
+          "surrendered": "<red>You have surrendered and cannot participate in this war.",
+          "grace": "<red>Your side needs to wait <time> minutes before starting another siege.",
+          "own-side": "<red>You cannot attack your own side.",
+          "own-town": "<red>You cannot attack your own towns.",
+          "no-town-spawn": "<red>The town you are attacking doesn't have a spawn point set. Contact admin.",
+          "wrong-world": "<red>You need to be in the same world as the town you're attacking!",
+          "too-far": "<red>You need to be within <range> blocks of the town to start a siege!",
+          "too-close": "<red>You need to be further than <range> blocks away from the town to start a siege!"
+        },
+        "abandon": {
+          "not-leader": "<red>You are not the leader of this siege."
+        },
+        "surrender": {
+          "no-permission": "<red>You cannot surrender this town."
+        },
+        "list": {
+          "empty": "<red>There are no sieges at the moment.",
+          "entry": "\n<white><bold><name><reset>\n <grey>Progress: <white><progress>%\n <grey>Remaining: <white><remaining> minutes\n"
+        }
+      },
+      "argument": {
+        "nation-not-found": "<prefix><red>The nation does not exist!",
+        "town-not-found": "<prefix><red>The town does not exist!",
+        "war-not-found": "<prefix><red>The war does not exist!",
+        "player-not-found": "<prefix><red>The player does not exist!",
+        "town-or-nation-not-found": "<prefix><red>The town or nation <name> does not exist!",
+        "war-named-not-found": "<prefix><red>The war <war> does not exist!",
+        "siege-not-found": "<prefix><red>The siege <siege> does not exist!",
+        "side-not-found": "<prefix><red>The side does not exist.",
+        "side-invalid": "<prefix><red>The side is invalid.",
+        "nation-already-at-war": "<prefix><red>The nation is already at war!",
+        "town-already-at-war": "<prefix><red>The town is already at war!",
+        "town-already-under-siege": "<prefix><red>The town is already under siege!",
+        "nation-not-in-war": "<prefix><red>The nation is not in that war!",
+        "town-not-in-war": "<prefix><red>The town is not in that war!",
+        "player-not-in-war": "<prefix><red>The player is not in that war.",
+        "player-already-in-war": "<prefix><red>The player is already in that war.",
+        "player-town-or-nation-not-in-war": "<prefix><red>The player, town or nation <name> is not in the war!",
+        "player-already-on-side": "<prefix><red>The player is already on that side.",
+        "self-not-in-war": "<prefix><red>You are not in that war.",
+        "self-already-in-war": "<prefix><red>You are already in this war.",
+        "self-already-on-side": "<prefix><red>You are already on that side.",
+        "war-required": "<prefix><red>You need to specify a war.",
+        "players-only": "<prefix><red>Only players can execute this command!",
+        "invalid-target": "<prefix><red>Invalid target."
+      },
+      "admin": {
+        "invalid-args": "<prefix>Invalid Arguments.",
+        "wartime-scheduled": "<green>War time for war starting in <time> minutes.",
+        "respawn-not-in-war": "<red>This command can only be used while in an active war."
+      },
+      "blocked": {
+        "property-during-siege": "<prefix><red>You cannot modify this property during a siege!"
+      },
+      "town": {
+        "capturepoint-usage": "/t set capturepoint",
+        "capturepoint-admin-usage": "/ta set capturepoint [town]"
+      }
+    },
+    "teleport": {
+      "war-time": "<gray><i>You cannot teleport during war time!",
+      "besieged-town": "<gray><i>You cannot teleport to a town that's besieged!",
+      "stuck-in-spawn": "<prefix><yellow>You are stuck in spawn and are allowed to teleport to your town or nation.",
+      "stuck-in-spawn-hint": "<prefix><yellow>Use /t spawn, or /n spawn",
+      "siege-blocked": "<prefix><red>You cannot teleport whilst in a siege!"
+    },
+    "war": {
+      "war-time-started": {
+        "subtitle": "<gray><i>War time has started for <name>!",
+        "broadcast": "<prefix><white>War time has started for <name>."
+      },
+      "in-war-subtitle": "<gray><i>You are in at least one war!",
+      "banner": "<gradient:#D72A09:#B01F03><u><b>War",
+      "duplicate-name": "<prefix><red>A war already exists with that name!",
+      "started": {
+        "broadcast": "<prefix>The war of <war> has started between <attacker> and <defender>.",
+        "subtitle": "<gray><i>The war of <war> has begun!"
+      },
+      "ended": {
+        "broadcast": "<prefix>The war of <war> has ended. <red><winner> <reset>has triumphed against <red><loser><reset>.",
+        "white-peace": "<prefix>The war of <war> has ended with a white peace."
+      }
+    },
+    "town": {
+      "at-war-subtitle": "<gray><i>Your town is at war!"
+    },
+    "status-screen": {
+      "cooldown": "<hover:show_text:'<dark_green>Offensive: <white><cooldown_attack><br><dark_green>Defensive: <white><cooldown_defense>'><grey>[<green>Cooldowns<grey>]</hover>",
+      "cooldown-inactive": "<red>Inactive",
+      "cooldown-active-format": "<white><days> days, <hours> hours and <minutes> minutes.",
+      "mercenary": "<hover:show_text:'<white>This town may participate in wars for money.'><grey>[<green>Mercenary<grey>]</hover>"
+    },
+    "respawn-title": {
+      "title": "<red>Dead",
+      "subtitle": "<gray>You died, spawning in <time> second(s)"
+    },
+    "battle": {
+      "siege": {
+        "event": {
+          "started": {
+            "global": "<prefix>The town of <town> has been put to siege by <side>!",
+            "attacker": {
+              "title": "<red><u><b><town>",
+              "subtitle": "<gray><i>Has been put to siege, attack!"
+            },
+            "defender": {
+              "title": "<red><u><b><town>",
+              "subtitle": "<gray><i>Is under siege, defend!"
+            }
+          },
+          "ended": {
+            "attacker-victory": {
+              "global": {
+                "surrender": "<prefix>The town of <town> has surrendered.",
+                "forced": "<prefix>The town of <town> has been sacked and placed under occupation by the armies of <attacker>!"
+              },
+              "attacker": {
+                "title": "<green><u><b>Victory",
+                "subtitle": "<gray><i><town> has been captured!"
+              },
+              "defender": {
+                "title": "<red><u><b>Defeat",
+                "subtitle": "<gray><i><town> has been lost!"
+              }
+            },
+            "defender-victory": {
+              "global": {
+                "surrender": "<prefix>The siege at <town> has been abandoned by the attackers.",
+                "forced": "<prefix>The siege of <town> has been lifted by the defenders!"
+              },
+              "attacker": {
+                "title": "<red><u><b>Defeat",
+                "subtitle": "<gray><i>We failed to capture <town>!"
+              },
+              "defender": {
+                "title": "<green><u><b>Victory",
+                "subtitle": "<gray><i><town> has been made safe!"
+              }
+            },
+            "draw": {
+              "global": "<prefix>The siege of <town> has ended in a draw!",
+              "title": "<yellow><u><b>Draw",
+              "subtitle": "<gray><i>The siege at <town> has ended!"
+            }
+          }
+        },
+        "building": {
+          "destroy": "<red>You can not break blocks at towns under siege. You are <distance>/<range> block(s) from the siege.",
+          "place": "<red>You can not place blocks at towns under siege. You are <distance>/<range> block(s) from the siege."
+        },
+        "progress": {
+          "capturing": "<prefix>The Attackers are capturing the capture point.",
+          "contested": "<prefix>The capture point is being contested.",
+          "uncontested": "<prefix>The capture point is no longer being contested.",
+          "secured": "<prefix>The Defenders re-secured the capture point.",
+          "time-remaining": "<prefix>Siege time remaining: <time> minutes."
+        },
+        "bossbar": {
+          "progress": "<gray>Capture Progress: <bar_color><progress> <gray>Time: <bar_color><time>min <gray>Town: <bar_color><town>",
+          "overtime": "<bar_color>OVERTIME"
+        },
+        "start-attempt": {
+          "not-war-captain": "<red>You cannot start a siege as you are not a war captain.",
+          "not-war-time": "<red>You cannot start a siege as war time is not active.",
+          "no-town-near": "<red>You cannot start a siege as there are no attackable towns near you.",
+          "not-captain": "<red>You cannot start a siege as you are not a captain.",
+          "surrendered": "<red>You cannot start a siege as you have surrendered."
+        }
+      },
+      "battlefield": {
+        "entered": {
+          "title": "<red><u><b>Battle",
+          "subtitle": "<gray><i>You entered a battlefield!"
+        },
+        "left": {
+          "title": "<red><u><b>Battle",
+          "subtitle": "<gray><i>You left the battlefield!"
+        }
+      }
+    },
+    "rally": {
+      "placement": {
+        "not-captain": "<red>Only war captains can place rallies!",
+        "inside-claim": "<red>Rallies cannot be placed inside of towns or outposts!",
+        "bounding-box": "<red>A rally must have a clear 3x2x3 spawning area around it!",
+        "min-range-town-friendly": "<red>A rally must be further than <range> blocks away from a friendly town!",
+        "min-range-outpost-friendly": "<red>A rally must be further than <range> blocks away from a friendly outpost!",
+        "min-range-rally-friendly": "<red>A rally must be further than <range> blocks away from a friendly rally!",
+        "min-range-town-hostile": "<red>A rally must be further than <range> blocks away from a hostile town!",
+        "min-range-outpost-hostile": "<red>A rally must be further than <range> blocks away from a hostile outpost!",
+        "min-range-rally-hostile": "<red>A rally must be further than <range> blocks away from a friendly rally!",
+        "success-self": "<green>You successfully created a rally point!",
+        "success-others": "<green>A rally point named <name> has been created by <creator>!"
+      }
+    },
+    "gui": {
+      "spawn-menu": {
+        "title": "Choose a Spawn",
+        "next-page": "<!i><green>Next Page",
+        "previous-page": "<!i><green>Previous Page",
+        "spawn-town": "<!i><yellow>Town: <name>",
+        "spawn-outpost": "<!i><yellow>Outpost: <name>",
+        "spawn-rally": "<!i><green>Rally: <name>",
+        "spawn-lore": [
+          "<!i><white>State: <gray><proxied>",
+          "<!i><white>- <gray>Last proxied <last_proxied_minutes> minutes & <last_proxied_seconds> seconds ago",
+          "<!i><white>Coords: <gray><x>, <y>, <z>"
+        ],
+        "spawn-enabled": "<green><i>Working",
+        "spawn-disabled": "<red><i>Proxied",
+        "info": "<!i><white>Info",
+        "info-lore": [
+          "<!i><gray>Select your spawn point. You can only choose spawns available to you.",
+          "<!i><gray>Spawn points can be disabled by hostile players if they get too close,",
+          "<!i><gray>make sure to defend yours!"
+        ]
+      }
+    },
+    "error": "<red><error>"
+  }
+}

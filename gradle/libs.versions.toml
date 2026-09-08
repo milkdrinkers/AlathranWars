@@ -1,36 +1,38 @@
 [versions]
 java = "21"
-paper-api = "1.21.7-R0.1-SNAPSHOT"
-paper-run = "1.21.7"
-crate = "4.0.0-RC.5"
-commandapi = "10.1.2"
-flyway = "11.1.0"
-jooq = "3.20.5"
+paper-api = "1.21.11-R0.1-SNAPSHOT"
+paper-run = "1.21.11"
+colorparser = "4.2.0"
+wordweaver = "0.1.0"
+commandapi = "12.0.0"
+flyway = "13.3.0"
+jooq = "3.21.7"
+configurate = "4.2.0-GeyserMC-SNAPSHOT"
 
 [libraries]
 # Core dependencies
-annotations = "org.jetbrains:annotations:26.0.2"
+annotations = "org.jetbrains:annotations:26.1.0"
 paper-api = { module = "io.papermc.paper:paper-api", version.ref = "paper-api" }
-morepaperlib = "space.arim.morepaperlib:morepaperlib:0.4.4"
+morepaperlib = "space.arim.morepaperlib:morepaperlib:0.5.3"
 
 # API dependencies
-javasemver = "io.github.milkdrinkers:javasemver:1.0.2"
-versionwatch = "io.github.milkdrinkers:versionwatch:1.0.2"
-wordweaver = "io.github.milkdrinkers:wordweaver:0.0.7"
-crate-api = { module = "com.github.milkdrinkers:crate-api", version.ref = "crate" }
-crate-yaml = { module = "io.github.milkdrinkers:crate-yaml", version.ref = "crate" }
-colorparser = "io.github.milkdrinkers:colorparser-paper:4.1.0"
+javasemver = "io.github.milkdrinkers:javasemver:2.0.0"
+versionwatch = "io.github.milkdrinkers:versionwatch:1.3.0"
+wordweaver-core = { module = "io.github.milkdrinkers:wordweaver", version.ref = "wordweaver" }
+wordweaver-json = { module = "io.github.milkdrinkers:wordweaver-json", version.ref = "wordweaver" }
+colorparser-common = { module = "io.github.milkdrinkers:colorparser-common", version.ref = "colorparser" }
+colorparser-paper = { module = "io.github.milkdrinkers:colorparser-paper", version.ref = "colorparser" }
 threadutil-bukkit = "io.github.milkdrinkers:threadutil-bukkit:1.4.0"
-commandapi-shade = { module = "dev.jorel:commandapi-bukkit-shade-mojang-mapped", version.ref = "commandapi" }
+commandapi-shade-paper = { module = "dev.jorel:commandapi-paper-shade", version.ref = "commandapi" }
 triumph-gui = "dev.triumphteam:triumph-gui-paper:3.1.13-SNAPSHOT"
 itemutils = "io.github.milkdrinkers:itemutils:1.1.0"
 
 # Plugin dependencies
-bstats = "org.bstats:bstats-bukkit:3.1.0"
+bstats = "org.bstats:bstats-bukkit:3.2.1"
 vault = "com.github.MilkBowl:VaultAPI:1.7.1"
-packetevents = "com.github.retrooper:packetevents-spigot:2.9.5"
-entitylib = "com.github.Tofaa2.EntityLib:spigot:cef23ea82d"
-placeholderapi = "me.clip:placeholderapi:2.11.6"
+packetevents = "com.github.retrooper:packetevents-spigot:2.13.0"
+entitylib = "io.github.tofaa2:spigot:3.3.7-SNAPSHOT"
+placeholderapi = "me.clip:placeholderapi:2.12.3"
 towny = "com.palmergames.bukkit.towny:towny:0.101.2.7"
 tabapi = "com.github.NEZNAMY:TAB-API:5.2.5"
 unlimitednametags = "com.github.alexdev03:UnlimitedNametags:1.6.9"
@@ -44,38 +46,57 @@ skulls = "ca.tweetzy:skulls:v3.23.0"
 headsplus = "com.github.Thatsmusic99:HeadsPlus:v6.10.5-SNAPSHOT-1"
 
 # Database dependencies
-hikaricp = "com.zaxxer:HikariCP:7.0.0"
+hikaricp = "com.zaxxer:HikariCP:7.1.0"
 flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flyway" }
 flyway-mysql = { module = "org.flywaydb:flyway-mysql", version.ref = "flyway" }
 jooq = { module = "org.jooq:jooq", version.ref = "jooq" }
-jakarta = "jakarta.xml.bind:jakarta.xml.bind-api:4.0.2" # Compiler bug, see: https://github.com/jOOQ/jOOQ/issues/14865#issuecomment-2077182512
+jakarta = "jakarta.xml.bind:jakarta.xml.bind-api:4.0.5" # Compiler bug, see: https://github.com/jOOQ/jOOQ/issues/14865#issuecomment-2077182512
 
 # JDBC drivers
-h2 = "com.h2database:h2:2.3.232"
-sqlite = "org.xerial:sqlite-jdbc:3.50.3.0"
-mysql = "com.mysql:mysql-connector-j:9.4.0"
-mariadb = "org.mariadb.jdbc:mariadb-java-client:3.5.4"
+h2 = "com.h2database:h2:2.4.240"
+sqlite = "org.xerial:sqlite-jdbc:3.53.2.1"
+mysql = "com.mysql:mysql-connector-j:26.7.0"
+mariadb = "org.mariadb.jdbc:mariadb-java-client:3.5.10"
+
+# Configuration dependencies
+yaml = { module = "org.yaml:snakeyaml", version = "2.6" }
+configurate-geantyref = "io.leangen.geantyref:geantyref:2.0.1"
+configurate-interfaces-ap = { module = "org.spongepowered:configurate-extra-interface-ap", version.ref = "configurate" }
+configurate-interfaces-core = { module = "org.spongepowered:configurate-extra-interface", version.ref = "configurate" }
+configurate-core = { module = "org.spongepowered:configurate-core", version.ref = "configurate" }
+configurate-yaml = { module = "org.spongepowered:configurate-yaml", version.ref = "configurate" }
+
+# Messaging dependencies
+jedis = "redis.clients:jedis:8.0.0"
+nats = "io.nats:jnats:2.26.2"
+rabbitmq = "com.rabbitmq:amqp-client:5.34.0"
 
 # Testing
-junit-bom = "org.junit:junit-bom:5.13.4"
+junit-bom = "org.junit:junit-bom:6.1.3"
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter" }
 junit-platform = { module = "org.junit.platform:junit-platform-launcher" }
-slf4j = "org.slf4j:slf4j-simple:2.0.17"
-testcontainers-bom = "org.testcontainers:testcontainers-bom:1.21.3"
-testcontainers-jupiter = { module = "org.testcontainers:junit-jupiter" }
-testcontainers-mysql = { module = "org.testcontainers:mysql" }
-testcontainers-mariadb = { module = "org.testcontainers:mariadb" }
+slf4j = "org.slf4j:slf4j-simple:2.0.18"
+testcontainers-bom = "org.testcontainers:testcontainers-bom:2.0.5"
+testcontainers-jupiter = { module = "org.testcontainers:testcontainers-junit-jupiter" }
+testcontainers-mysql = { module = "org.testcontainers:testcontainers-mysql" }
+testcontainers-mariadb = { module = "org.testcontainers:testcontainers-mariadb" }
+testcontainers-redis = { module = "com.redis:testcontainers-redis", version = "2.2.4" }
+testcontainers-rabbitmq = { module = "org.testcontainers:testcontainers-rabbitmq" }
 
 [bundles]
+configurate-core = ["configurate-core", "configurate-interfaces-core", "configurate-interfaces-ap", "configurate-geantyref"]
+configurate-yaml = ["configurate-yaml", "yaml"]
 flyway = ["flyway-core", "flyway-mysql"]
 jdbcdrivers = ["h2", "sqlite", "mysql", "mariadb"]
 junit = ["junit-jupiter", "junit-platform"]
-testcontainers = ["testcontainers-jupiter", "testcontainers-mysql", "testcontainers-mariadb"]
+messagingclients = ["jedis", "nats", "rabbitmq"]
+testcontainers = ["testcontainers-jupiter", "testcontainers-mysql", "testcontainers-mariadb", "testcontainers-redis", "testcontainers-rabbitmq"]
+wordweaver = ["wordweaver-core", "wordweaver-json"]
 
 [plugins]
-shadow = "com.gradleup.shadow:9.0.2"
-run-paper = "xyz.jpenilla.run-paper:3.0.0"
-plugin-yml-bukkit = "de.eldoria.plugin-yml.bukkit:0.8.0"
-plugin-yml-paper = "de.eldoria.plugin-yml.paper:0.8.0"
-flyway = { id = "org.flywaydb.flyway", version.ref = "flyway" }
+shadow = "com.gradleup.shadow:9.6.1"
+run-paper = "xyz.jpenilla.run-paper:3.0.2"
+plugin-yml-bukkit = "de.eldoria.plugin-yml.bukkit:0.9.0"
+plugin-yml-paper = "de.eldoria.plugin-yml.paper:0.9.0"
 jooq = { id = "org.jooq.jooq-codegen-gradle", version.ref = "jooq" }
+publisher = "com.vanniktech.maven.publish:0.37.0"
