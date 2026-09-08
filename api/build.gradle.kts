@@ -29,13 +29,13 @@ mavenPublishing {
         name.set(base.archivesName.get().split("-").map { it.capitalized() }.joinToString("-"))
         description.set(rootProject.description.orEmpty())
         url.set("https://github.com/milkdrinkers/AlathranWars")
-        inceptionYear.set("2023")
+        inceptionYear.set("2026")
 
         licenses {
             license {
-                name.set("GNU General Public License Version 3")
-                url.set("https://www.gnu.org/licenses/gpl-3.0.en.html#license-text")
-                distribution.set("https://www.gnu.org/licenses/gpl-3.0.en.html#license-text")
+                name.set("GNU Affero General Public License v3.0")
+                url.set("https://www.gnu.org/licenses/agpl-3.0.en.html#license-text")
+                distribution.set("https://www.gnu.org/licenses/agpl-3.0.en.html#license-text")
             }
         }
 
